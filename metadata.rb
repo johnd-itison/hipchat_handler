@@ -1,3 +1,4 @@
+name "hipchat_handler"
 maintainer       "SecondMarket Holdings, Inc."
 maintainer_email "systems@secondmarket.com"
 license          "Apache 2.0"
