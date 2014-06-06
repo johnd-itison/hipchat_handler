@@ -28,13 +28,13 @@ include_recipe "chef_handler"
 require "rubygems"
 
 chef_gem "hipchat" do
-  action :install
+  action :nothing
   version node[:hipchat_handler][:version]
-end
+end.run_action(:install)
 
 chef_handler "HipChat::NotifyRoom" do
   source "#{Gem::default_dir}/gems/hipchat-#{node[:hipchat_handler][:version]}/lib/hipchat/chef.rb"
   arguments [data_bag_item('hipchat_apikeys', 'chef')["apikey"], node[:hipchat_handler][:room_name]]
   supports :exception => true
-  action :enable
-end
+  action :nothing
+end.run_action(:install)
