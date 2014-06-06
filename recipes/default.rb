@@ -37,4 +37,4 @@ chef_handler "HipChat::NotifyRoom" do
   arguments [data_bag_item('hipchat_apikeys', 'chef')["apikey"], node[:hipchat_handler][:room_name]]
   supports :exception => true
   action :nothing
-end.run_action(:install)
+end.run_action(:enable)
